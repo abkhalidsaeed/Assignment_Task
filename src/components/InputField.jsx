@@ -1,17 +1,15 @@
 import { Input, Box, Chip } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const InputField = () => {
   const [name, setName] = useState("");
   const [display, setDisplay] = useState([]);
-  // const data = ["name", "andavd", "sjhbjc"];
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      // setName(e.target.value);
       console.log("added");
       const names = {
-        id: Math.floor(Math.random() * 10),
+        id: Math.floor(Math.random() * 100),
         value: name,
       };
       setDisplay((oldname) => [...oldname, names]);
@@ -19,6 +17,9 @@ const InputField = () => {
       console.log(names);
     }
   };
+  useEffect(() => {
+    localStorage.setItem("dataKey", JSON.stringify(name));
+  }, [name]);
   const handleDelete = () => {
     alert("name is deleted.");
   };
@@ -51,10 +52,8 @@ const InputField = () => {
           }}
         >
           {display.map((names) => (
-            <div>
-              <label key={names.id} onDelete={handleDelete}>
-                {names.value}
-              </label>
+            <div key={names.id}>
+              <span>{names.value}</span>
             </div>
           ))}
         </Box>
