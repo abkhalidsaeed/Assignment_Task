@@ -1,13 +1,15 @@
 import "./App.css";
 import Home from "./components/Home";
-import InputField from "./components/InputField";
+import Attributes from "./components/Attributes";
+import AddAttribute from "./components/Attributes/AddAttributes";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/input" element={<InputField />} />
+      <Route path="/attribute" element={<Attributes />} />
+      <Route path="/addattribute" element={<AddAttribute />} />
     </Routes>
   );
 }
