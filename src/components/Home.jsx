@@ -30,7 +30,7 @@ function Home(props) {
             padding: 10,
             borderRadius: 5,
           }}
-          to="/attribute"
+          to="/input"
         >
           Attributes
         </Link>
