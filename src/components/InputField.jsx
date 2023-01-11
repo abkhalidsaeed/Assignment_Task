@@ -1,4 +1,4 @@
-import { TextField , Box } from "@mui/material";
+import { TextField , Box, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -53,7 +53,7 @@ const InputField = () => {
           }}
         >
         { data?.map((element, index) => (
-            <h2 key={index}>{element?.name}</h2>
+            <Button variant="outlined" key={index}>{element?.name} <Button>X</Button></Button>
         ))
         }
         </Box>
