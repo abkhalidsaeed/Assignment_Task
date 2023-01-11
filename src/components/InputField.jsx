@@ -1,9 +1,10 @@
-import { Input, Box } from "@mui/material";
+import { TextField , Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const InputField = () => {
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
+  const[inputValue, SetInput] = useState('')
 
   useEffect(() => {
     axios.get("http://localhost:3000/data").then((response) => {
@@ -11,12 +12,13 @@ const InputField = () => {
     });
   }, []);
 
-  const handleKeyDown = async (e) => {
+  const handleKeyDown =  (e) => {
     if (e.key === "Enter") {
       axios
-        .post("http://localhost:3000/data", { name: data })
+        .post("http://localhost:3000/data", { name: inputValue })
         .then((response) => {
-          setData(response.data);
+          setData([response.data, ...data]);
+          SetInput('')
         });
     }
   };
@@ -26,13 +28,13 @@ const InputField = () => {
   return (
     <div>
       <div style={{ textAlign: "right", marginTop: "4%", marginRight: "5%" }}>
-        <Input
-          style={{ width: "210px" }}
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter Name"
-          onChange={(e) => setData(e.target.value)}
+        <TextField
+        
+        value={inputValue}
+        id="standard-basic" l
+        label="Enter name" 
+        variant="standard"
+          onChange={(e) => SetInput(e.target.value)}
           onKeyDown={handleKeyDown}
         />
       </div>
@@ -50,7 +52,10 @@ const InputField = () => {
             borderRadius: 5,
           }}
         >
-          <h2 key={data.id}>{data.name}</h2>
+        { data?.map((element, index) => (
+            <h2 key={index}>{element?.name}</h2>
+        ))
+        }
         </Box>
       </div>
       <div>
