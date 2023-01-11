@@ -7,16 +7,16 @@ const InputField = () => {
 
   useEffect(() => {
     axios.get("http://localhost:3000/data").then((response) => {
-        console.log("db response",response.data)
       setData(response.data);
     });
   }, []);
 
   const handleKeyDown = async (e) => {
     if (e.key === "Enter") {
-      axios.post("http://localhost:3000/data", {name:data})
+      axios
+        .post("http://localhost:3000/data", { name: data })
         .then((response) => {
-            setData(response.data);
+          setData(response.data);
         });
     }
   };
@@ -31,7 +31,6 @@ const InputField = () => {
           type="text"
           id="name"
           name="name"
-          //   value={data}
           placeholder="Enter Name"
           onChange={(e) => setData(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -51,10 +50,7 @@ const InputField = () => {
             borderRadius: 5,
           }}
         >
-         {/* {data?.map((d)=>{
-            <p>{d}</p>
-         })} */}
-          
+          <h2 key={data.id}>{data.name}</h2>
         </Box>
       </div>
       <div>
