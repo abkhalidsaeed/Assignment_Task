@@ -22,8 +22,15 @@ const InputField = () => {
         });
     }
   };
-  const handleDelete = () => {
-    alert("name is deleted.");
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:3000/data/${id}`)
+      .then(() => {
+        alert("Post deleted!");
+        axios.get("http://localhost:3000/data").then((response) => {
+          setData(response.data);
+        });
+      });
   };
   return (
     <div>
@@ -52,10 +59,18 @@ const InputField = () => {
             borderRadius: 5,
           }}
         >
-        { data?.map((element, index) => (
-            <Button variant="outlined" key={index}>{element?.name} <Button>X</Button></Button>
-        ))
-        }
+          {data?.map((element, index) => (
+            <tr>
+              <td>
+              <Button variant="outlined" key={index}>
+                {element?.name}
+              </Button>
+              </td>
+              <td>
+                <Button onClick={(e) => handleDelete(element.id)}>X</Button>
+              </td>
+            </tr>
+          ))}
         </Box>
       </div>
       <div>
