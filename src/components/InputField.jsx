@@ -1,7 +1,7 @@
 import { TextField , Box, Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import Draggable from "react-draggable";
 const InputField = () => {
   const [data, setData] = useState([]);
   const[inputValue, SetInput] = useState('')
@@ -52,7 +52,7 @@ const InputField = () => {
             marginTop: "2%",
             marginRight: "5%",
             height: "auto",
-            width: "170px",
+            width: "250px",
             boxShadow: "0 0 3px 2px #cec7c759",
             alignItems: "center",
             padding: 20,
@@ -60,16 +60,16 @@ const InputField = () => {
           }}
         >
           {data?.map((element, index) => (
+            <Draggable>
             <tr>
               <td>
               <Button variant="outlined" key={index}>
                 {element?.name}
               </Button>
-              </td>
-              <td>
-                <Button onClick={(e) => handleDelete(element.id)}>X</Button>
+                <Button size="small" onClick={(e) => handleDelete(element.id)}>X</Button>
               </td>
             </tr>
+            </Draggable>
           ))}
         </Box>
       </div>
@@ -79,8 +79,9 @@ const InputField = () => {
             float: "right",
             marginTop: "2%",
             marginRight: "15%",
-            height: "auto",
+            height: "400px",
             width: "50%",
+            
             boxShadow: "0 0 3px 2px #cec7c759",
             alignItems: "center",
             padding: 20,

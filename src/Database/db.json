@@ -1,68 +1,16 @@
 {
   "data": [
     {
-      "name": "suraj",
+      "name": "Farhan",
+      "id": 1
+    },
+    {
+      "name": "Abdullah",
+      "id": 2
+    },
+    {
+      "name": "Ali",
       "id": 3
-    },
-    {
-      "name": "ascsdacsac",
-      "id": 4
-    },
-    {
-      "name": "Abdullah",
-      "id": 5
-    },
-    {
-      "name": "Basit",
-      "id": 8
-    },
-    {
-      "name": "Abdullah",
-      "id": 10
-    },
-    {
-      "name": "Basit",
-      "id": 11
-    },
-    {
-      "name": "Basita",
-      "id": 12
-    },
-    {
-      "name": "Moazzam",
-      "id": 13
-    },
-    {
-      "name": "Ans",
-      "id": 14
-    },
-    {
-      "name": "121",
-      "id": 16
-    },
-    {
-      "name": "121",
-      "id": 17
-    },
-    {
-      "name": "121455",
-      "id": 18
-    },
-    {
-      "name": "121455",
-      "id": 19
-    },
-    {
-      "name": "121",
-      "id": 20
-    },
-    {
-      "name": "222",
-      "id": 21
-    },
-    {
-      "name": "125",
-      "id": 22
     }
   ]
 }
